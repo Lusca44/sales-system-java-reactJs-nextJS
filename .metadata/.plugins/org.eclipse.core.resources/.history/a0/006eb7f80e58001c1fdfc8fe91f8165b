@@ -1,0 +1,21 @@
+package com.lusca44.vendasapi.mock;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+
+import com.lusca44.vendasapi.entities.Produto;
+import com.lusca44.vendasapi.services.ProdutoService;
+
+public class MockData implements CommandLineRunner {
+
+	@Autowired
+	private ProdutoService service;
+	
+	@Override
+	public void run(String... args) throws Exception {
+
+		Produto prod1 = new Produto("G001", new BigDecimal("110.00"), "Mouse gamer", "Mouse gamer 440DPI");
+		
+	}
+
+}

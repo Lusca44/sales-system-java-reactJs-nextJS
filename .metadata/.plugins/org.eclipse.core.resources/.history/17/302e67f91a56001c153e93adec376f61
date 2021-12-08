@@ -1,0 +1,15 @@
+package com.lusca44.vendasapi.entities.dto;
+
+import java.math.BigDecimal;
+
+public class ProdutoDTO {
+
+	private Long id;
+	private String sku;
+	private BigDecimal preco;
+	private String nome;
+	private String descricao;
+	
+	
+	
+}

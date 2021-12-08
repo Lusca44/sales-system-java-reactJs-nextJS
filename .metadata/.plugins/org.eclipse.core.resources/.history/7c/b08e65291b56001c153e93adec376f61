@@ -1,0 +1,28 @@
+package com.lusca44.vendasapi.entities.dto;
+
+import java.math.BigDecimal;
+
+import com.lusca44.vendasapi.entities.Produto;
+
+public class ProdutoDTO {
+
+	private Long id;
+	private String sku;
+	private BigDecimal preco;
+	private String nome;
+	private String descricao;
+	
+	public ProdutoDTO() {
+	}
+
+	public ProdutoDTO(Produto produto) {
+		this.id = produto.getId();
+		this.sku = produto.getSku();
+		this.preco = produto.getPreco();
+		this.nome = produto.getNome();
+		this.descricao = produto.getDescricao();
+	}
+	
+	
+	
+}

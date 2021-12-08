@@ -1,0 +1,8 @@
+package com.lusca44.vendasapi.entities.dto;
+
+public class ProdutoDTO {
+
+	private Long id;
+	private String nome;
+	
+}

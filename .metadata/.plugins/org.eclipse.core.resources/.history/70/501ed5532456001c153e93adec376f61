@@ -1,0 +1,45 @@
+package com.lusca44.vendasapi.services;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.lusca44.vendasapi.entities.Produto;
+import com.lusca44.vendasapi.entities.dto.ProdutoDTO;
+import com.lusca44.vendasapi.repositories.ProdutoRepository;
+
+@Service
+public class ProdutoService {
+
+	@Autowired
+	private ProdutoRepository repo;
+	
+	
+	public Produto create(Produto produto) {
+		return repo.save(produto);
+	}
+	
+	public void update(Produto produto) {
+		
+	}
+	
+	
+	public Produto fromDTO(ProdutoDTO dto) {
+		Produto produto = new Produto();
+		produto.setNome(dto.getNome());
+		produto.setPreco(dto.getPreco());
+		produto.setSku(dto.getSku());
+		produto.setDescricao(dto.getDescricao());
+		return produto;
+	}
+	
+	private void updateData(Optional<Produto> newProduto, Produto produto) {
+		newProduto.get().setSku(produto.getSku());
+		newProduto.get().setPreco(produto.getPreco());
+		newProduto.get().setNome(produto.getNome());
+		newProduto.get().setDescricao(produto.getDescricao());
+		newProduto.get().setSku(produto.getSku());
+		newProduto.get().setSku(produto.getSku());
+	}
+}

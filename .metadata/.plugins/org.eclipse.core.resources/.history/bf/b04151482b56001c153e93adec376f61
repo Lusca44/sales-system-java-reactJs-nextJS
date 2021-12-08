@@ -1,0 +1,104 @@
+package com.lusca44.vendasapi.entities.dto;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.lusca44.vendasapi.entities.Produto;
+
+public class ProdutoDTO implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+
+	private Long id;
+	private String sku;
+	private BigDecimal preco;
+	private String nome;
+	private String descricao;
+	@JsonFormat(pattern = "dd/MM/yyyy")
+	private LocalDate dataCadastro;
+	
+	public ProdutoDTO() {
+	}
+
+	public ProdutoDTO(Long id, String sku, BigDecimal preco, String nome, String descricao, LocalDate dataCadastro) {
+		super();
+		this.id = id;
+		this.sku = sku;
+		this.preco = preco;
+		this.nome = nome;
+		this.descricao = descricao;
+		this.dataCadastro = dataCadastro;
+	}
+
+
+	public Produto toModel() {
+		return new Produto(id, sku ,preco, nome, descricao);
+	}
+	
+	public static ProdutoDTO fromModel(Produto produto) {
+		return new ProdutoDTO(
+				produto.getId(),
+				produto.getSku(),
+				produto.getPreco(),
+				produto.getNome(),
+				produto.getDescricao(),
+				produto.getDataCadastro());
+	}
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getSku() {
+		return sku;
+	}
+
+	public void setSku(String sku) {
+		this.sku = sku;
+	}
+
+	public BigDecimal getPreco() {
+		return preco;
+	}
+
+	public void setPreco(BigDecimal preco) {
+		this.preco = preco;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+	
+	public LocalDate getDataCadastro() {
+		return dataCadastro;
+	}
+
+	public void setDataCadastro(LocalDate dataCadastro) {
+		this.dataCadastro = dataCadastro;
+	}
+
+	@Override
+	public String toString() {
+		return "ProdutoDTO [id=" + id + ", sku=" + sku + ", preco=" + preco + ", nome=" + nome + ", descricao="
+				+ descricao + "]";
+	}
+	
+}

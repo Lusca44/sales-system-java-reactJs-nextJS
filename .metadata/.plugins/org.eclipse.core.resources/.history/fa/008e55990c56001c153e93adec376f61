@@ -1,0 +1,8 @@
+package com.lusca44.vendasapi.services;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class ProdutoService {
+
+}

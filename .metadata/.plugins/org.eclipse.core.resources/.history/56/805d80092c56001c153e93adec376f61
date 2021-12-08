@@ -1,0 +1,32 @@
+package com.lusca44.vendasapi.services;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.lusca44.vendasapi.entities.Produto;
+import com.lusca44.vendasapi.repositories.ProdutoRepository;
+
+@Service
+public class ProdutoService {
+
+	@Autowired
+	private ProdutoRepository repo;
+	
+	
+	public Produto findById(Long id) {
+		return repo.findById(id).get();
+	}
+	
+	public Produto create(Produto produto) {
+		return repo.save(produto);
+	}
+	
+	public void update(Produto produto, Long id) {
+		Produto produto = findById(id);
+		produto = dto.toModel();
+		produto.setId(id);
+		repo.save(produto);
+	}
+	
+}
